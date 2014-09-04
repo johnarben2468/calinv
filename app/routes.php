@@ -28,5 +28,13 @@ Route::get('/login', function()
 	return View::make('login');
 });
 
+
+Route::get('/createfabric', function()
+{
+
+	return View::make('createfabric');
+
+});
+Route::post('createfabric', array('uses' => 'FabricController@create', 'as'=>'createfabric'));
 Route::post('login', array('uses' => 'UserController@doLogin', 'as'=>'login'));
 Route::get('logout', array('uses' => 'UserController@doLogout', 'as'=>'logout'));
