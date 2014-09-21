@@ -46,7 +46,7 @@ public function doLogin()
 				// redirect them to the secure section or whatever
 				// return Redirect::to('secure');
 				// for now we'll just echo success (even though echoing in a controller is bad)
-				echo 'SUCCESS!';
+				
 				return Redirect::to('/');
 
 			} else {	 	
@@ -62,7 +62,9 @@ public function doLogin()
 	
 	public function doLogout()
 	{
+
 		Auth::logout(); // log the user out of our application
+		Session::put('logout_message', 'You have successfully logged out.');
 		return Redirect::to('login'); // redirect the user to the login screen
 	}
 

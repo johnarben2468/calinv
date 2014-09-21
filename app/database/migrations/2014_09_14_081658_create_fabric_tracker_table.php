@@ -3,7 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFabricTable extends Migration {
+class CreateFabricTrackerTable extends Migration {
+
 
 	/**
 	 * Run the migrations.
@@ -12,12 +13,12 @@ class CreateFabricTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('fabric', function(Blueprint $table)
+		Schema::create('fabric_tracker', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('cal_code', 32);
-			$table->string('supplier_code', 32);
-			$table->string('file', 320);
+			$table->integer('fabric_id');
+			$table->string('action', 32);
+			$table->integer('doer');
 			$table->timestamps();
 		});
 	}
@@ -29,7 +30,8 @@ class CreateFabricTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('fabric');
+		Schema::drop('fabric_tracker');
 	}
+
 
 }

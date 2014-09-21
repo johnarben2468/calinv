@@ -1,6 +1,7 @@
 @extends('layouts.login')
 
 @section('content')
+<div><center><h2><b>Login</b></h2></center></div>
   <form class="form-horizontal templatemo-signin-form" role="form" action="login" method="post">
         @if(Session::get('message'))
           <div class="col-md-12">
@@ -12,6 +13,17 @@
         <br>
     </div>
         {{Session::forget('message')}}
+        @endif
+         @if(Session::get('logout_message'))
+          <div class="col-md-12">
+        <div class="alert alert-success alert-dismissible" role="alert">
+             <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                              {{Session::get('logout_message')}}
+        </div>
+        <br>
+        <br>
+    </div>
+        {{Session::forget('logout_message')}}
         @endif
 
         <div class="form-group">
